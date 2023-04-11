@@ -21,7 +21,7 @@ function MatchesBar({
   return (
     <Paper elevation={3}>
       <Typography p={2} component="h2" variant="h6">
-        Simulates a feed page update.
+        Simulates a page updated by a feed.
       </Typography>
       <Stack direction="row" gap={2} p={2} justifyContent="space-around">
         <Button
@@ -31,7 +31,7 @@ function MatchesBar({
           type="button"
           variant="outlined"
         >
-          Starts a match
+          Start a match
         </Button>
         <Button
           color="inherit"
@@ -49,7 +49,7 @@ function MatchesBar({
           type="button"
           variant="outlined"
         >
-          Ends a match
+          End a match
         </Button>
       </Stack>
     </Paper>

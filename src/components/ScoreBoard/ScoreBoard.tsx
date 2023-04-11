@@ -1,3 +1,5 @@
+import { memo, useMemo } from 'react';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
@@ -11,7 +13,7 @@ import type { Match, Matches } from 'pages/Home';
 import { getMatchesSortedByScore } from './helpers';
 import BoxAlert, { type BoxAlertProps } from './elements/BoxAlert';
 
-function MatchItem({ match }: { match: Match }) {
+const MemoizedMatch = memo(function MatchItem({ match }: { match: Match }) {
   return (
     <ListItem divider>
       <ListItemText>
@@ -26,7 +28,7 @@ function MatchItem({ match }: { match: Match }) {
       </ListItemSecondaryAction>
     </ListItem>
   );
-}
+});
 
 const infoArlert: BoxAlertProps = {
   severity: 'info',
@@ -35,7 +37,10 @@ const infoArlert: BoxAlertProps = {
 
 function ScoreBoard({ matches }: { matches: Matches }) {
   const theme = useTheme();
-  const sortedMatches = getMatchesSortedByScore(matches);
+  const sortedMatches = useMemo(
+    () => getMatchesSortedByScore(matches),
+    [matches]
+  );
   return (
     <Paper elevation={3}>
       <Stack gap={2} mt={2} mb={2} padding={4}>
@@ -55,7 +60,10 @@ function ScoreBoard({ matches }: { matches: Matches }) {
           {sortedMatches &&
             sortedMatches.length > 0 &&
             sortedMatches.map((match) => (
-              <MatchItem key={`${match[0][0]}${match[0][1]}`} match={match} />
+              <MemoizedMatch
+                key={`${match[0][0]}${match[0][1]}`}
+                match={match}
+              />
             ))}
         </List>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}

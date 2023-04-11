@@ -13,7 +13,9 @@ describe('Home', () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('heading', { name: 'Simulates a feed page update.' })
+      screen.getByRole('heading', {
+        name: 'Simulates a page updated by a feed.',
+      })
     ).toBeInTheDocument();
   });
 });
