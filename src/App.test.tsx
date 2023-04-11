@@ -9,7 +9,7 @@ describe('App', () => {
     // ACT
     // EXPECT
     expect(
-      screen.getByRole('heading', { name: /Hello World/i })
+      screen.getByRole('heading', { name: /Football World Cup Score Board/i })
     ).toBeInTheDocument();
   });
   it('Renders Not Found if invalid path ', () => {

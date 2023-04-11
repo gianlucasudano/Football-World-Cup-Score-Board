@@ -1,11 +1,14 @@
-import { Link } from 'react-router-dom';
+import { matches } from 'mocks/scoreBoard';
+
+import Container from '@mui/material/Container';
+
+import ScoreBoard from 'components/ScoreBoard';
 
 function Home() {
   return (
-    <>
-      <h1>Hello World</h1>
-      <Link to="/example">GO to Example page</Link>
-    </>
+    <Container maxWidth="sm">
+      <ScoreBoard matches={matches} />
+    </Container>
   );
 }
 
