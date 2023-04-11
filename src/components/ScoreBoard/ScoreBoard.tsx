@@ -7,7 +7,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-import { getMatchesSortedByScore, type Matches, type Match } from './helpers';
+import type { Match, Matches } from 'pages/Home';
+import { getMatchesSortedByScore } from './helpers';
 import BoxAlert, { type BoxAlertProps } from './elements/BoxAlert';
 
 function MatchItem({ match }: { match: Match }) {

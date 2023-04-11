@@ -11,5 +11,9 @@ describe('Home', () => {
     expect(
       screen.getByRole('heading', { name: 'Football World Cup Score Board' })
     ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('heading', { name: 'Simulates a feed page update.' })
+    ).toBeInTheDocument();
   });
 });

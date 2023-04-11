@@ -1,4 +1,29 @@
-import type { MatchesByScore, Matches } from 'components/ScoreBoard/helpers';
+import type { Matches } from 'pages/Home';
+import type { MatchesByScore } from 'components/ScoreBoard/helpers';
+
+const scheduledMatches: Matches = [
+  [
+    ['Mexico', 'Canada'],
+    [0, 0],
+  ],
+  [
+    ['Spain', 'Brazil'],
+    [0, 0],
+  ],
+  [
+    ['Germany', 'France'],
+    [0, 0],
+  ],
+  [
+    ['Uruguay', 'Italy'],
+    [0, 0],
+  ],
+
+  [
+    ['Argentina', 'Australia'],
+    [0, 0],
+  ],
+];
 
 const matches: Matches = [
   [
@@ -77,4 +102,10 @@ const matchesGroupedByScore: MatchesByScore = {
 
 const sortedKeys: string[] = ['5', '4', '3'];
 
-export { matches, matchesSortedByScore, matchesGroupedByScore, sortedKeys };
+export {
+  matches,
+  matchesGroupedByScore,
+  matchesSortedByScore,
+  scheduledMatches,
+  sortedKeys,
+};
