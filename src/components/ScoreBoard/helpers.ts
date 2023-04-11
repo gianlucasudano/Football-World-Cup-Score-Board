@@ -1,6 +1,6 @@
 import isArray from 'lodash/isArray';
 
-type Match = [string[], number[]];
+export type Match = [string[], number[]];
 export type Matches = Match[];
 export type MatchesByScore = Record<string, Matches>;
 

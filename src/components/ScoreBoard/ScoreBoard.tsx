@@ -1,11 +1,36 @@
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-import { getMatchesSortedByScore, type Matches } from './helpers';
+import { getMatchesSortedByScore, type Matches, type Match } from './helpers';
+import BoxAlert, { type BoxAlertProps } from './elements/BoxAlert';
+
+function MatchItem({ match }: { match: Match }) {
+  return (
+    <ListItem divider>
+      <ListItemText>
+        <Typography variant="body2">
+          {`${match[0][0]} - ${match[0][1]}`}
+        </Typography>
+      </ListItemText>
+      <ListItemSecondaryAction>
+        <Typography variant="body2">
+          {`${match[1][0]} - ${match[1][1]}`}
+        </Typography>
+      </ListItemSecondaryAction>
+    </ListItem>
+  );
+}
+
+const infoArlert: BoxAlertProps = {
+  severity: 'info',
+  message: 'There are no matches available.',
+};
 
 function ScoreBoard({ matches }: { matches: Matches }) {
   const theme = useTheme();
@@ -19,15 +44,21 @@ function ScoreBoard({ matches }: { matches: Matches }) {
             sx={{ borderBottom: `${theme.spacing(0.2)} solid` }}
           >
             <Typography
-              component="h2"
+              component="h1"
               variant="h6"
               sx={{ fontWeight: theme.typography.fontWeightBold }}
             >
               Football World Cup Score Board
             </Typography>
           </ListItem>
+          {sortedMatches &&
+            sortedMatches.length > 0 &&
+            sortedMatches.map((match) => (
+              <MatchItem key={`${match[0][0]}${match[0][1]}`} match={match} />
+            ))}
         </List>
-        <div>{JSON.stringify(sortedMatches, null, 2)}</div>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        {matches && matches.length === 0 && <BoxAlert {...infoArlert} />}
       </Stack>
     </Paper>
   );
