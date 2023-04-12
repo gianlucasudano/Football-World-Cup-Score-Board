@@ -69,7 +69,7 @@ When I started working on my task, I split the problem into two parts - the visu
 
 To simulate the feed that the page would receive, I thought about how to insert a new entry (when a match starts), modify an existing entry (when a team scores a goal), and remove an entry (when the match ends). With this approach defined, I proceeded to write helpers for normalizing the data and the React component for the visualization.
 
-After completing the visualization component, I created a matches bar that allows for the simulation of random events. Although there may be some strange behavior in the Score Board, such as a match starting after it ends before another started before, the scope of the task was only to simulate events and not to reproduce a realistic scenario.
+After completing the visualization component, I created a matches bar that allows for the simulation of random events. Although there may be some strange behavior in the Score Board, like a game that, despite having started later, could end earlier than the others that started prior to it, the scope of the task was only to simulate events and not to reproduce a realistic scenario.
 
 Regarding testing, I chose to only test the code related to the visualization because it was the main goal of the task. I omitted testing for the matches bar because in a real case, this logic would happen outside of the component. The implementation of the matches bar was only intended to support showing how the component works with periodic updating of the data.
 
